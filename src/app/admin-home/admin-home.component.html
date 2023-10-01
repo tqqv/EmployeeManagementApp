@@ -1,0 +1,27 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+      <p>Welcome to admin workspace</p>
+      <p *ngIf="showFiller"></p>
+
+      <section>
+        <div>
+          <a mat-raised-button  routerLink="/list-department" routerLinkActive="active" ariaCurrentWhenActive="page" color="primary">Department Management</a>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <a mat-raised-button  routerLink="/list-employee" routerLinkActive="active" ariaCurrentWhenActive="page" color="primary">Employee Management</a>
+        </div>
+      </section>
+    </mat-drawer>    
+
+
+  
+    <div class="sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        View workspace
+      </button>
+    </div>
+  
+  </mat-drawer-container> 

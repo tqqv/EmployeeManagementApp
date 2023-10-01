@@ -1,0 +1,30 @@
+<app-search fxLayoutAlign="center center" (searchValueChange)="onSearchTextChanged($event)"></app-search>
+<table fxLayoutAlign="center center" id="table" style="width: 100%;">
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Detail</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let de of departmentList">
+                <td>{{ de.id }}</td>
+                <td>{{ de.name }}</td>
+                <td>
+                    <a style="font-size: 16px;" href="/list-employee">View all department</a>
+                </td>
+                <td>
+                    <button mat-raised-button color="primary" (click)="updateDepartment(de.id)">Edit</button>
+                    <button mat-raised-button color="warn" (click)="deleteDepartment(de.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</table>
+
+<!-- <app-paginator></app-paginator> -->
+<app-pagination fxLayoutAlign="center center" [current]="current" [total]="total" (goTo)="onGoTo($event)"
+    (next)="onNext($event)" (previous)="onPrevious($event)"></app-pagination>

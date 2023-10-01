@@ -1,0 +1,12 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Update department</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="updateDepartment()">
+            <mat-form-field>
+                <mat-label>Enter new department name</mat-label>
+                <input matInput type="username" formControlName="name">
+            </mat-form-field>
+            <button mat-raised-button type="submit">Confirm</button>
+        </form>
+    </mat-card>
+</div>
