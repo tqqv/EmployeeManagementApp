@@ -1,0 +1,41 @@
+<app-search fxLayoutAlign="center center" (searchValueChange)="onSearchTextChanged($event)"></app-search>
+<table fxLayoutAlign="center center" id="table" style="width: 100%;">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Fullname</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Role</th>
+        <th scope="col">Department</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- *ngIf="(employeeCountRadioButton==='All' || employeeCountRadioButton === ''+em.departmentId) && (searchText ==='' || em.fullname.toLowerCase().includes(searchText))" -->
+      <ng-container *ngFor="let em of employeeList">
+        <tr>
+          <td>{{ em.id }}</td>
+          <td>{{ em.fullname }}</td>
+          <td>{{ em.dob }}</td>
+          <td>{{ em.email }}</td>
+          <td>{{ em.username }}</td>
+          <td>{{ em.role }}</td>
+          <td>{{ em.departmentId }}</td>
+          <td>
+            <button mat-raised-button color="warn" (click)="deleteEmployee(em.id)">Delete</button>
+            <button mat-raised-button color="primary" (click)="updateEmployee(em.id)">Edit</button>
+          </td>
+        </tr>
+      </ng-container>
+
+    </tbody>
+  </table>
+
+</table>
+
+<!-- <app-paginator></app-paginator> -->
+<app-pagination fxLayoutAlign="center center" [current]="current" [total]="total" (goTo)="onGoTo($event)"
+  (next)="onNext($event)" (previous)="onPrevious($event)"></app-pagination>

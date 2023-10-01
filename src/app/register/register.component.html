@@ -1,0 +1,35 @@
+<div fxLayoutAlign="center center" fxFlexFill >
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Register </mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup] = "formGroup" (ngSubmit)="register()" >
+             <mat-form-field>
+                <mat-label>Full name</mat-label>
+             <input matInput type = "fullname" placeholder="Fullname" formControlName="name" >
+         </mat-form-field>
+         <mat-form-field>
+             <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="pat@example.com" formControlName="email" required>
+            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+         </mat-form-field>
+        <mat-form-field>
+             <mat-label>Date of birth</mat-label>
+             <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+             <mat-datepicker #picker></mat-datepicker> 
+         </mat-form-field>
+         <mat-form-field>
+            <mat-label>Enter your username</mat-label>
+             <input matInput type = "username" placeholder="Username" formControlName="username" >
+             </mat-form-field>
+          <mat-form-field>
+             <mat-label>Enter your password</mat-label>
+             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+               </button>
+          </mat-form-field>
+         <button mat-raised-button type = "submit">Confirm</button>
+        </form>
+    </mat-card>
+</div>  

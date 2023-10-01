@@ -1,0 +1,42 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="25">
+        <mat-toolbar color="primary">Update profile</mat-toolbar>
+        <form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="updateProfile()">
+            <mat-form-field>
+                <mat-label>Enter new fullname</mat-label>
+                <input required matInput type="username" formControlName="fullname">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Enter new dob</mat-label>
+                <input type="text" required matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Enter new username</mat-label>
+                <input required matInput type="username" formControlName="username">
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Enter new email</mat-label>
+                <input required matInput type="email" formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input required matInput type="password" formControlName="password">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{defaultDepartment}}</mat-label>
+                <select formControlName="departmentId" matNativeControl required value="defaultDepartment">
+                    <option *ngFor="let depart of departmentList" [value]="depart.id">{{depart.name}}</option>
+                </select>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit">Confirm</button>
+        </form>
+    </mat-card>
+</div>
